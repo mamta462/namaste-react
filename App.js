@@ -1,11 +1,7 @@
-const heading = React.createElement("h1",
-    { id: "heading", class: "main" },
-    "Hello word from react");
+import React from 'react';
+import  ReactDOM   from 'react-dom/client';
 
-const div = React.createElement('div', { id: "parent" }, React.createElement('div', { id: "child" },
-    [React.createElement("h1", { id: "heading", class: "main" }, "I am h1 tag"),
-    React.createElement("h1", { id: "heading", class: "main" }, "I am h2 tag")])
-)
-
+const heading = React.createElement('h1',{id:'heading'},'i am h1 tag');
+const headingJSX = <h1 id='heading'>I M h1 tag using JSX</h1>
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(div);
+root.render(headingJSX);
