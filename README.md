@@ -17,3 +17,6 @@ import component from "path";
 (used when u have to export multiple things use named export)
 export const component;
 import {component} from "path";
+
+
+-whenever a state variable updates react triggers a reconcilation cycle(will re-render the component) 
