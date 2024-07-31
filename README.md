@@ -20,3 +20,7 @@ import {component} from "path";
 
 
 -whenever a state variable updates react triggers a reconcilation cycle(will re-render the component) 
+
+# Two types of routing in web apps
+1. Client side routing 
+2. server side routing

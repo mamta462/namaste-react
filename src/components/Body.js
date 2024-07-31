@@ -2,6 +2,7 @@ import RestorentContainer from "./RestorentContainer";
 import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [ListOfRestaurent, setRestaurentData] = useState([]);
@@ -22,7 +23,7 @@ const Body = () => {
   };
 
   //conditional rendering
-  if (ListOfRestaurent.length === 0) {
+  if (ListOfRestaurent?.length === 0) {
     return <Shimmer />;
   }
 
@@ -52,7 +53,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filterdListOfRestaurent.map((restaurent) => (
-          <RestorentContainer key={restaurent.info.id} resData={restaurent} />
+         <Link key={restaurent.info.id} to={"/resInfo/"+restaurent.info.id}> <RestorentContainer  resData={restaurent} /></Link>
         ))}
       </div>
     </div>
