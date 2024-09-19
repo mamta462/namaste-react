@@ -1,30 +1,34 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { LOGO_URL } from "../utils/constans";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [loginBtn, setLoginBtn] = useState("Login");
   const onlineStatus = useOnlineStatus();
-  console.log(onlineStatus);
+  const {loggedInuser} = useContext(UserContext)
   return (
-    <div className="header">
-      <div className="logo">
+    <div className="flex justify-between bg-pink-100 shadow-lg mb-2">
+      <div className="m-2 w-24">
         <img src={LOGO_URL} />
       </div>
-      <div className="menu-item">
-        <ul className="ul-container">
-          <li>Online status: {onlineStatus ? "✅" : "🔴"}</li>
-          <li>
-            <Link to="/home">Home</Link>
+      <div className="flex items-center">
+        <ul className="flex m-4 p-4">
+          <li className="mx-4">Online status: {onlineStatus ? "✅" : "🔴"}</li>
+          <li className="mx-4">
+            <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="mx-2">
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li className="mx-2">
             <Link to="/contact">Contact us</Link>
           </li>
-          <li>Cart</li>
+          <li className="mx-2" >
+            <Link to="/Grocery">Grocery</Link>
+          </li>
+          <li className="mx-2">Cart</li>
           <button
             className="login"
             onClick={() => {
@@ -35,6 +39,7 @@ const Header = () => {
           >
             {loginBtn}
           </button>
+          <li className="mx-2">{loggedInuser}</li>
         </ul>
       </div>
     </div>
